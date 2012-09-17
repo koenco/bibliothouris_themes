@@ -1,0 +1,17 @@
+.field-name-field-cover-image{
+	float: right;
+}
+.field-name-field-isbn{
+	border-bottom: 1px solid black;
+	width: 60%;
+	margin-bottom: 10px;
+}
+
+
+#section-header {
+    background-color: #666666;
+}
+
+#region-sidebar-first{
+	background-color:#ccc;
+}
