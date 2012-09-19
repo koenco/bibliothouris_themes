@@ -211,12 +211,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#345260', end
 .views-table{
 	color: #1D3AAA;
 }
-.region-inner.region-content-inner.contextual-links-region{
-min-height:700px;
+html{
+background-color:#192734;
 }
 ul#main-menu {
 float:left;
 margin: 0;
+margin-left:-10px;
 }
 ul#secondary-menu{
 float: right;
