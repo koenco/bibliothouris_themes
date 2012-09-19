@@ -240,3 +240,6 @@ width:100%;
 clear:both;
 margin-top:10px;
 }
+.alpha-resize-indicator{
+display:none;
+}
