@@ -1177,3 +1177,7 @@ ul.secondary a.active,
 ul.secondary a.active:hover,
 ul.secondary a.active:focus {
 }
+
+#user-profile-info {
+    border: 0px;
+}
