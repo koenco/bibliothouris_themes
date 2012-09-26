@@ -1,14 +1,14 @@
 <?php
 $account = menu_get_object('user');
 
-$name = $user_profile['field_first_name'][0]['#markup'] . ' ' .
-    $user_profile['field_last_name'][0]['#markup'];
-$street = $user_profile['field_street_number'][0]['#markup'];
-$date_of_birth = $user_profile['field_date_of_birth'][0]['#markup'];
-$city = $user_profile['field_postal_code'][0]['#markup'].' '.$user_profile['field_city'][0]['#markup'];;
+$name = $account->field_first_name['und'][0]['value'] . ' ' .
+    $account->field_last_name['und'][0]['value'];
+$street = $account->field_street_number['und'][0]['value'];
+$date_of_birth = $account->field_date_of_birth['und'][0]['value'];
+$city = $account->field_postal_code['und'][0]['value'].' '.$account->field_city['und'][0]['value'];;
 $telephone = $account->field_phone_number['und'][0]['value'];
 $email = $account->mail;
-$since = date("d/m/Y", $account->created);
+$since = date("d/m/Y", $account->t ccreated);
 ?>
 
 <div id="user-profile">
