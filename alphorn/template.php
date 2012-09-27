@@ -37,9 +37,15 @@ function alphorn_preprocess_user_profile(&$variables) {
   if (count($account->field_city) > 0) {
     $city .= $account->field_city['und'][0]['value'];
   }
+
+  $email = 'M: ' . $account->mail;
+
   $telephone = '';
   if (count($account->field_phone_number) > 0) {
-    $telephone = $account->field_phone_number['und'][0]['value'];
+    $telephone = 'T: ' . $account->field_phone_number['und'][0]['value'];
+  } else {
+    $telephone = $email;
+    $email = '';
   }
 
   $variables['name'] = $account->field_first_name['und'][0]['value'] . ' ' .
@@ -48,7 +54,7 @@ function alphorn_preprocess_user_profile(&$variables) {
   $variables['date_of_birth'] = $date_of_birth;
   $variables['city'] = $city;
   $variables['telephone'] = $telephone;
-  $variables['email'] = $account->mail;
+  $variables['email'] = $email;
   $variables['since'] = date("d/m/Y", $account->created);
 
 }
