@@ -20,8 +20,6 @@ function alphorn_preprocess_html(&$vars) {
 }
 
 function alphorn_preprocess_user_profile(&$variables) {
-  //dpm($variables);
-
   $account = menu_get_object('user');
 
   $street = '';
@@ -45,7 +43,7 @@ function alphorn_preprocess_user_profile(&$variables) {
   }
 
   $variables['name'] = $account->field_first_name['und'][0]['value'] . ' ' .
-    $account->field_last_name['und'][0]['value'] . ' test';
+    $account->field_last_name['und'][0]['value'];
   $variables['street'] = $street;
   $variables['date_of_birth'] = $date_of_birth;
   $variables['city'] = $city;
