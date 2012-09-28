@@ -60,18 +60,12 @@ function alphorn_preprocess_user_profile(&$variables) {
 }
 
 function alphorn_preprocess_node(&$variables) {
-
-  $nid = $variables['nid'];
-
-  if (isBookLended($nid)) {
-    $available = 'Unavailable';
-    $class = 'red';
-  } else {
-    $available = 'Available';
-    $class = 'green';
-  }
-  $variables['content']['field_number_of_books'][0] =array(
-      '#markup' => "<div class='$class'>$available</div>",
-  );
+  $status = $variables['content']['field_status'][0]['#markup'];
+ if ($status == "Available") {
+   $class = 'green';
+ } else {
+   $class = 'red';
+ }
+  $variables['content']['field_status'][0]['#markup'] = "<div class='$class'>$status</div>";
 
 }
