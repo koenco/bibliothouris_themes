@@ -74,3 +74,13 @@ function alphorn_preprocess_node(&$variables) {
   $variables['content']['field_status'][0]['#markup'] = "<div class='$class'>$status</div>";
 
 }
+function alphorn_preprocess_views_view_table(&$vars){
+//kpr($vars);
+  if($vars['view']->name=="borrowed_books"){
+    foreach($vars['rows'] as $key => $row){
+      if($row['field_fine']!='€ 0'){
+        $vars['row_classes'][$key][] = 'red';
+      }
+    }
+  }
+}
