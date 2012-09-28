@@ -1,6 +1,6 @@
 <div id="user-profile">
     <h1>
-        <?php <drupal_set_title(''); print $name; ?>
+        <?php print $name; ?>
     </h1>
     <table id="user-profile-info">
         <tr><td>Member since:</td><td><?php print $street;?></td><td><?php print $date_of_birth;?></td></tr>
