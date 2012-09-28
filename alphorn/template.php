@@ -5,7 +5,7 @@
  * This file is empty by default because the base theme chain (Alpha & Omega) provides
  * all the basic functionality. However, in case you wish to customize the output that Drupal
  * generates through Alpha & Omega this file is a good place to do so.
- * 
+ *
  * Alpha comes with a neat solution for keeping this file as clean as possible while the code
  * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
  * for more information on this topic.
@@ -13,10 +13,15 @@
  
 
 
-function alphorn_preprocess_html(&$vars) { 
+function alphorn_preprocess_html(&$vars) {
   $file = theme_get_setting('theme_color') . '-style.css';
-  drupal_add_css(path_to_theme() . '/css/'. $file, array('group' => CSS_THEME, 'weight' => 115,'browsers' => array(), 'preprocess' => FALSE));
- 
+  drupal_add_css(path_to_theme() . '/css/' . $file, array(
+    'group' => CSS_THEME,
+    'weight' => 115,
+    'browsers' => array(),
+    'preprocess' => FALSE
+  ));
+  $vars['page']['#children'] = str_replace(' <h1 class="title" id="page-title">emp</h1>', '', $vars['page']['#children']);
 }
 
 function alphorn_preprocess_user_profile(&$variables) {
@@ -28,11 +33,11 @@ function alphorn_preprocess_user_profile(&$variables) {
   }
   $date_of_birth = '';
   if (count($account->field_date_of_birth) > 0) {
-    $date_of_birth = $account->field_date_of_birth['und'][0]['value'];
+    $date_of_birth = date('d/m/Y', strtotime($account->field_date_of_birth['und'][0]['value']));
   }
   $city = '';
   if (count($account->field_postal_code) > 0) {
-    $city = $account->field_postal_code['und'][0]['value'].' ';
+    $city = $account->field_postal_code['und'][0]['value'] . ' ';
   }
   if (count($account->field_city) > 0) {
     $city .= $account->field_city['und'][0]['value'];
