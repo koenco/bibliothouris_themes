@@ -74,6 +74,7 @@ function alphorn_preprocess_node(&$variables) {
   $variables['content']['field_status'][0]['#markup'] = "<div class='$class'>$status</div>";
 
 }
+
 function alphorn_preprocess_views_view_table(&$vars){
 //kpr($vars);
   if($vars['view']->name=="borrowed_books"){
@@ -83,4 +84,13 @@ function alphorn_preprocess_views_view_table(&$vars){
       }
     }
   }
+}
+
+// remove the title from the /user page
+function alphorn_preprocess_page(&$variables) {
+  $path = base_path() . 'user/';
+  if (strpos(drupal_get_path_alias(request_uri()), $path) > -1) {
+    drupal_set_title('');
+  }
+
 }
