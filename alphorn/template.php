@@ -84,7 +84,15 @@ function alphorn_preprocess_node(&$variables) {
 }
 
 function alphorn_page_alter(&$page) {
-  //kpr($page);
-  // dprint_r($page);
+  //kpr(variable_get('page_title_user'));
+}
+
+// remove the title from the /user page
+function alphorn_preprocess_page(&$variables) {
+  $path = base_path() . 'user/';
+  if (strpos(drupal_get_path_alias(request_uri()), $path) > -1) {
+    drupal_set_title('');
+  }
+
 }
 
