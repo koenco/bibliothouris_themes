@@ -20,8 +20,7 @@ function alphorn_preprocess_html(&$vars) {
     'browsers' => array(),
     'preprocess' => FALSE
   ));
-  //Changed place to blue-style.css, display:none on h1.title.
-  //$vars['page']['#children'] = str_replace(' <h1 class="title" id="page-title">emp</h1>', '', $vars['page']['#children']);
+  $vars['page']['#children'] = str_replace(' <h1 class="title" id="page-title">emp</h1>', '', $vars['page']['#children']);
 }
 
 function alphorn_preprocess_user_profile(&$variables) {
@@ -66,25 +65,14 @@ function alphorn_preprocess_user_profile(&$variables) {
 }
 
 function alphorn_preprocess_node(&$variables) {
+  $status = $variables['content']['field_status'][0]['#markup'];
+ if ($status == "Available") {
+   $class = 'green';
+ } else {
+   $class = 'red';
+ }
+  $variables['content']['field_status'][0]['#markup'] = "<div class='$class'>$status</div>";
 
-  $nid = $variables['nid'];
-
-  if (isBookLended($nid)) {
-    $available = 'Unavailable';
-    $class = 'red';
-  }
-  else {
-    $available = 'Available';
-    $class = 'green';
-  }
-  $variables['content']['field_number_of_books'][0] = array(
-    '#markup' => "<div class='$class'>$available</div>",
-  );
-
-}
-
-function alphorn_page_alter(&$page) {
-  //kpr(variable_get('page_title_user'));
 }
 
 // remove the title from the /user page
