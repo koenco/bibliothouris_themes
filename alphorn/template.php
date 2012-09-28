@@ -28,7 +28,7 @@ function alphorn_preprocess_user_profile(&$variables) {
   }
   $date_of_birth = '';
   if (count($account->field_date_of_birth) > 0) {
-    $date_of_birth = $account->field_date_of_birth['und'][0]['value'];
+    $date_of_birth =  date('d/m/Y',strtotime($account->field_date_of_birth['und'][0]['value']));
   }
   $city = '';
   if (count($account->field_postal_code) > 0) {
