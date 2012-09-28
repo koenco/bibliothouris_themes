@@ -70,31 +70,8 @@ function alphorn_preprocess_node(&$variables) {
     $available = 'Available';
     $class = 'green';
   }
-  $variables['content']['field_available'] = array(
-    '#theme' => 'field',
-    '#weight' => 3,
-    '#title' => 'Available',
-    '#access' => 'true',
-    '#label_display' => 'hidden',
-    '#view_mode' => 'full',
-    '#language' => 'und',
-    '#field_name' => 'field_available',
-    '#field_type' => 'text',
-    '#field_translatable' => '0',
-    '#entity_type' => 'node',
-    '#bundle' => 'book',
-    '#object' => $variables['content']['field_publisher']['#object'],
-    '#items' => array(
-      0 => array(
-        'value' => $available,
-        'format' => null,
-        'safe_value' => $available,
-      ),
-    ),
-    '#formatter' => 'text_default',
-    '0' => array(
+  $variables['content']['field_number_of_books'][0] =array(
       '#markup' => "<div class='$class'>$available</div>",
-    ),
   );
 
 }
